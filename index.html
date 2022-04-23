@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pagination</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-dark">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-6">
+            <p style="color:white">Python</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <p style="color:white">Javascript</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <p style="color:white">Micrsoft Office</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow= "50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+
+               <div class="mt-3">
+                <button type="button" class="btn btn-outline-primary">More about me</button>
+                <button type="button" class="btn btn-outline-warning " id="toastbtn">Contact work</button>
+               </div>
+
+        </div>
+        
+    <div class="col-6">
+        <p style="color:white">HTML, CSS</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <p style="color:white">C + +</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+    </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="data:image/png;base64,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" class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Hello, world! This is a toast message.
+          </div>
+        </div>
+      </div>
+      
+    <script>
+        document.getElementById("toastbtn").onclick = function() {
+          var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+          var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl)
+          })
+          toastList.forEach(toast => toast.show())
+        }
+        </script>
+
+  </body>
+</html>
